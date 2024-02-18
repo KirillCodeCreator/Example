@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, request
 
 app = Flask(__name__)
 
@@ -79,26 +79,61 @@ def form_sample():
                             <h1>Форма для регистрации в суперсекретной системе</h1>
                             <div>
                                 <form class="login_form" method="post">
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Введите адрес почты" name="email">
-                                    <input type="password" class="form-control" id="password" placeholder="Введите пароль" name="password">
+                                    <input type="surname" class="form-control" id="surname" aria-describedby="emailHelp" 
+                                    placeholder="Введите фамилию" name="surname">
+                                    <input type="name" class="form-control" id="name" placeholder="Введите имя" 
+                                    name="name">
+                                    <br>
+                                    <input type="email" class="form-control" id="email" placeholder="Введите адрес почты" 
+                                    name="email">
                                     <div class="form-group">
-                                        <label for="classSelect">В каком вы классе</label>
-                                        <select class="form-control" id="classSelect" name="class">
-                                          <option>7</option>
-                                          <option>8</option>
-                                          <option>9</option>
-                                          <option>10</option>
-                                          <option>11</option>
+                                        <label for="classSelect">Какое у вас образование?</label>
+                                        <select class="form-control" id="educationSelect" name="education">
+                                          <option>Начальное</option>
+                                          <option>Среднее общее</option>
+                                          <option>Среднее полное</option>
+                                          <option>Среднее профессиональное</option>
+                                          <option>Высшее</option>
                                         </select>
                                      </div>
+                                     <br>
                                     <div class="form-group">
-                                        <label for="about">Немного о себе</label>
-                                        <textarea class="form-control" id="about" rows="3" name="about"></textarea>
+                                        <label for="form-check">Какие у Вас профессии?</label>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="sex" id="male" value="male" checked>
+                                          <label class="form-check-label" for="male">
+                                            Инженер-исследователь
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="sex" id="female" value="female">
+                                          <label class="form-check-label" for="female">
+                                            Пилот
+                                          </label>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="photo">Приложите фотографию</label>
-                                        <input type="file" class="form-control-file" id="photo" name="file">
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="sex" id="female" value="female">
+                                          <label class="form-check-label" for="female">
+                                            Экзобиолог
+                                          </label>
+                                        </div>
                                     </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="sex" id="female" value="female">
+                                          <label class="form-check-label" for="female">
+                                            Врач
+                                          </label>
+                                        </div>
+                                    </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="sex" id="female" value="female">
+                                          <label class="form-check-label" for="female">
+                                            Инженер
+                                          </label>
+                                        </div>
+                                    </div>
+                                    <br>
                                     <div class="form-group">
                                         <label for="form-check">Укажите пол</label>
                                         <div class="form-check">
@@ -114,11 +149,20 @@ def form_sample():
                                           </label>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="about">Почему вы хотите принять участие в миссии?</label>
+                                        <textarea class="form-control" id="about" rows="3" name="about"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="photo">Приложите фотографию</label>
+                                        <br>
+                                        <input type="file" class="form-control-file" id="photo" name="file">
+                                    </div>
                                     <div class="form-group form-check">
                                         <input type="checkbox" class="form-check-input" id="acceptRules" name="accept">
-                                        <label class="form-check-label" for="acceptRules">Готов быть добровольцем</label>
+                                        <label class="form-check-label" for="acceptRules">Готовы остаться на Марсе?</label>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Записаться</button>
+                                    <button type="submit" class="btn btn-primary">Отправить</button>
                                 </form>
                             </div>
                           </body>
